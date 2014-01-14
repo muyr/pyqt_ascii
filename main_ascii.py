@@ -19,7 +19,10 @@ class MAsciiWindow(QWidget):
     def __init__(self, parent = None):
         super(MAsciiWindow, self).__init__(parent)
         self.setStyleSheet('font-family:Microsoft YaHei')
-        pickleFile = open('asciiDict.mu', 'rb')
+        # sometimes use 'U'
+        # sometimes use 'rb'
+        pickleFile = open('asciiDict.mu', 'U')
+        # pickleFile = open('asciiDict.mu', 'rb')
         self.asciiDict = pickle.load(pickleFile)
         pickleFile.close()
         self.initUI()
